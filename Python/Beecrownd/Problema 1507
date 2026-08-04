@@ -1,0 +1,23 @@
+def sim_ou_nao(seq,sub):
+    tabela = [False] * len(sub)
+    i = 0
+    ultimo = 0
+    for k in range(len(sub)):
+        for j in range(ultimo, len(seq)):
+            if sub[k] == seq[j]:
+                tabela[i] = True
+                ultimo = j + 1
+                i += 1
+                break
+        if tabela[-1]:
+            return 'Yes'
+    return 'No'            
+                
+            
+N = int(input())
+for _ in range(N):
+    seq = list(input())
+    Q = int(input())
+    for _ in range(Q):
+        sub = list(input())
+        print(sim_ou_nao(seq,sub))
